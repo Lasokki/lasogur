@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lasogur - simple sharing service</title>
+    <link href="static/css/lasogur.css" rel="stylesheet">
+  </head>
+<body>
+  {% if user %}
+  <h1>Hello {{ user }}!</h1>
+  {% else %}
+  <h1>Hello World!</h1>
+  {% endif %}
+</body>
