@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8">
     <title>Lasogur - simple sharing service</title>
-    <link href="static/css/lasogur.css" rel="stylesheet">
+    <link href="/static/css/lasogur.css" rel="stylesheet"></link>
   </head>
 <body>
   {% if user %}
-  <h1>Hello {{ user }}!</h1>
+  <h1>Lasogur - {{ user }}</h1>
   {% else %}
-  <h1>Hello World!</h1>
+  <h1>Lasogur</h1>
   {% endif %}
 
   <h2>Upload new File</h2>
 
-  <form action="" method=post enctype=multipart/form-data>
-    <p><input type=file name=file>
-      <input type=submit value=Upload>
+  <form action="" method="post" enctype="multipart/form-data">
+    <input type=file name=file></input>
+    <input type=submit value=Upload></input>
   </form>
 
 </body>
