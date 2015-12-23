@@ -1,12 +1,17 @@
 import os
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
-from werkzeug import secure_filename
+from id_handler import id_handler
 
 UPLOAD_FOLDER = 'var/upload'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+id_handler = id_handler(6)
+
+# Will be changed to something smarter when database is used
+pic_count = 0
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -18,8 +23,17 @@ def upload_file(user=None):
     if request.method == 'POST':
         file = request.files['file']
         if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
+            
+            # Will be changed to something smarter when database is used
+            global pic_count
+
+            # Format: aaaaaa.jpg
+            filename = id_handler.encode_id(pic_count + 1) + "." + file.filename.rsplit('.', 1)[1]
+
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            
+            pic_count = pic_count + 1
+
             return redirect(url_for('uploaded_file',
                                     filename=filename))
 
