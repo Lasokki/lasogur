@@ -44,13 +44,27 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
+@app.route('/gallery/<file_id>')
 @app.route('/gallery')
-def gallery():
+def gallery(file_id=None):
     imgs = os.listdir(UPLOAD_FOLDER)
     
-    imgs = map((lambda x: "/uploads/" + x), imgs)
-        
-    return render_template("gallery.html", imgs=imgs)
+    gallery_links = map((lambda x: "/gallery/" + x.rsplit('.', 1)[0]), imgs)
+    uploads_links = map((lambda x: "/uploads/" + x), imgs)
+
+    paths = zip(gallery_links, uploads_links)
+
+    if file_id:
+        file_path = ""
+
+        for s in os.listdir(UPLOAD_FOLDER):
+            if s.startswith(file_id):
+                file_path = "/uploads/" + s
+                break
+
+        return render_template("picture_view.html", paths=paths, file_path=file_path)
+    else:
+        return render_template("gallery.html", paths=paths)
 
 if __name__ == "__main__":
     app.run(debug=True)

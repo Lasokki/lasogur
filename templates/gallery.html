@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>Lasogur - simple sharing service</title>
-    <link href="static/css/lasogur.css" rel="stylesheet"></link>
+    <link href="/static/css/lasogur.css" rel="stylesheet"></link>
   </head>
 <body>
   <div>
     <h1>Gallery</h1>
   </div>
   <div class="gallery">
-    {% for path in imgs %}
-    <div style="background-image: url({{ path }});" class="thumb"></div> 
+    {% for gal, upl in paths %}
+    <a href="{{ gal  }}"><div style="background-image: url({{ upl }});" class="thumb"></div></a> 
     {% endfor %}
   </div>
 </body>
