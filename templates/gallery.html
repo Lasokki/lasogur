@@ -3,14 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Lasogur - simple sharing service</title>
-    <link href="static/css/lasogur.css" rel="stylesheet">
+    <link href="static/css/lasogur.css" rel="stylesheet"></link>
   </head>
 <body>
-  <h1>Gallery</h1>
-
   <div>
+    <h1>Gallery</h1>
+  </div>
+  <div class="gallery">
     {% for path in imgs %}
     <div style="background-image: url({{ path }});" class="thumb"></div> 
     {% endfor %}
   </div>
 </body>
+</html>
