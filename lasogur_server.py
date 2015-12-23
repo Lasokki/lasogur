@@ -44,5 +44,13 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'],
                                filename)
 
+@app.route('/gallery')
+def gallery():
+    imgs = os.listdir(UPLOAD_FOLDER)
+    
+    imgs = map((lambda x: "/uploads/" + x), imgs)
+        
+    return render_template("gallery.html", imgs=imgs)
+
 if __name__ == "__main__":
     app.run(debug=True)

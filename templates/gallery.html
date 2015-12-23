@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lasogur - simple sharing service</title>
+    <link href="static/css/lasogur.css" rel="stylesheet">
+  </head>
+<body>
+  <h1>Gallery</h1>
+
+  <div>
+    {% for path in imgs %}
+    <img src="{{ path }}"></img> 
+    {% endfor %}
+  </div>
+</body>
