@@ -1,24 +1,28 @@
 html {
     background-color: teal;
+    height: 100%;
 }
 
 body {
     font-family: sans-serif;
     background-color: white;
-    width: 80%;
+    width: 99%;
+    height: 90%;
     min-width: 500px;
     max-width: 1200px;
 }
 
 .gallery {
-    float: left;
+    float: right;
     border: 1px solid #000;
     background-color: red;
-    
+    width: 25%;
+    height: 80%;
+    overflow-y: scroll;
 }
 
 .thumb {
-    float: left;
+    float: right;
     background-color: #CCC;
     background-position: center center;
     background-repeat: no-repeat;
@@ -28,4 +32,24 @@ body {
     height: 100px;
     background-size: cover;
     -moz-background-size: cover;
+}
+
+.picView {
+    float: left;
+    border: 1px solid #000;
+    background-color: red;
+    width: 70%;
+    height: 80%;
+}
+
+.fitted {
+    float: left;
+    background-color: #CCC;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 5px;
+    width: 90%;
+    height: 90%;
+    background-size: contain;
+    -moz-background-size: contain;
 }

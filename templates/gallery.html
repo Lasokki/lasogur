@@ -8,10 +8,11 @@
 <body>
   {% if file_path %}
   <div>
+    <!-- This could be replaced with a title from database! -->
     <h1>{{ file_path }}</h1>
   </div>
-  <div class="pic_view">
-    <img src="{{ file_path }}"></img>
+  <div class="picView">
+    <a href="{{ file_path  }}"><div style="background-image: url({{ file_path }});" class="fitted"></div></a> 
   </div>
   
   {% else %}
