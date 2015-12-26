@@ -6,9 +6,20 @@
     <link href="/static/css/lasogur.css" rel="stylesheet"></link>
   </head>
 <body>
+  {% if file_path %}
+  <div>
+    <h1>{{ file_path }}</h1>
+  </div>
+  <div class="pic_view">
+    <img src="{{ file_path }}"></img>
+  </div>
+  
+  {% else %}
   <div>
     <h1>Gallery</h1>
   </div>
+  {% endif %}
+
   <div class="gallery">
     {% for gal, upl in paths %}
     <a href="{{ gal  }}"><div style="background-image: url({{ upl }});" class="thumb"></div></a> 

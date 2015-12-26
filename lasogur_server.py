@@ -54,17 +54,15 @@ def gallery(file_id=None):
 
     paths = zip(gallery_links, uploads_links)
 
+    file_path = None
     if file_id:
-        file_path = ""
 
         for s in os.listdir(UPLOAD_FOLDER):
             if s.startswith(file_id):
                 file_path = "/uploads/" + s
                 break
 
-        return render_template("picture_view.html", paths=paths, file_path=file_path)
-    else:
-        return render_template("gallery.html", paths=paths)
+    return render_template("gallery.html", paths=paths, file_path=file_path)
 
 if __name__ == "__main__":
     app.run(debug=True)
