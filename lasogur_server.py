@@ -15,7 +15,7 @@ pic_count = 0
 
 def allowed_file(filename):
     return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ALLOWED_EXTENSIONS
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 @app.route("/<user>", methods=['GET', 'POST'])
 @app.route('/', methods=['GET','POST'])
